@@ -85,3 +85,5 @@ CPU AMD EPYC 7K62 (4 vCPU), RAM 3812564 kB, Python 3.12.3, Markdown 3.11.2 (upst
 `finditer` + 一次队列拼接把它线性化（不是单行换皮：改动涉及前缀/后缀/非法定义三条回退路径
 的顺序保持）。与台账里已发布的 jsonpath/dpath/jsondiff 等条目不同，本条是 O(n²) 消除 +
 上游同批次修复的对照测量。
+
+<!-- pr-channel self-test: 1793469274 -->
