@@ -47,10 +47,11 @@ factor: per-sample medians follow the O(n²)→O(n) change over a 16× span of n
   SHA-256 of the exact rendered HTML compared, 0 differences; re-run of the optimized tree is
   deterministic.
   `MD_UPSTREAM=/tmp/md-upstream python3 -m pytest tests/test_diff.py -q -s`
-- **G1 · upstream tests green**: 1187 tests, `OK (skipped=111)`, 0 failed, on the patched tree.
+- **G1 · upstream tests green**: `Ran 1187 tests in 2.261s / OK (skipped=52)`, 0 failed,
+  on the patched tree (this exact block was run verbatim).
   ```bash
   git clone --depth=1 git@github-linluozi:Python-Markdown/markdown.git /tmp/md-g1
-  python3 -m venv /tmp/venv-g1 && /tmp/venv-g1/bin/pip install -q -e /tmp/md-g1
+  python3 -m venv /tmp/venv-g1 && /tmp/venv-g1/bin/pip install -q -e /tmp/md-g1 pyyaml
   git -C /tmp/md-g1 apply -p1 patch.diff
   cd /tmp/md-g1 && /tmp/venv-g1/bin/python -m unittest discover tests
   ```

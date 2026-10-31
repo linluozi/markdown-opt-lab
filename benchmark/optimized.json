@@ -93,6 +93,6 @@
  "seed": 20261101,
  "tree": "/tmp/md-opt-bench-tree",
  "upstream": "/tmp/up-md",
- "upstream_tests": "cd /tmp/md-g1 && git apply -p1 patch.diff && /tmp/venv-md/bin/python -m unittest discover tests -> Ran 1187 tests in 2.288s, OK (skipped=111), 0 failed",
+ "upstream_tests": "cd /tmp/md-g1 && git apply -p1 patch.diff && /tmp/venv-g1/bin/python -m unittest discover tests -> Ran 1187 tests in 2.261s, OK (skipped=52), 0 failed (verbatim README G1 block)",
  "warmup": 3
 }
