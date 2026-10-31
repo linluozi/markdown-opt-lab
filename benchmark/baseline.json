@@ -1,0 +1,97 @@
+{
+ "command": "/tmp/venv-md/bin/python benchmark/bench.py --upstream /tmp/up-md --impl baseline --upstream-tests cd /tmp/up-md && /tmp/venv-md/bin/python -m unittest discover tests",
+ "env": {
+  "cpu": "AMD EPYC 7K62 48-Core Processor",
+  "mem_total_kb": 3812564,
+  "python": "3.12.3"
+ },
+ "impl": "baseline",
+ "markdown_file": "/tmp/up-md/markdown/__init__.py",
+ "markdown_version": "3.11.2",
+ "peak_rss_kb": 30400,
+ "raw_files": [
+  "benchmark/raw/baseline-small-0.json",
+  "benchmark/raw/baseline-small-1.json",
+  "benchmark/raw/baseline-small-2.json",
+  "benchmark/raw/baseline-small-3.json",
+  "benchmark/raw/baseline-small-4.json",
+  "benchmark/raw/baseline-medium-0.json",
+  "benchmark/raw/baseline-medium-1.json",
+  "benchmark/raw/baseline-medium-2.json",
+  "benchmark/raw/baseline-medium-3.json",
+  "benchmark/raw/baseline-medium-4.json",
+  "benchmark/raw/baseline-large-0.json",
+  "benchmark/raw/baseline-large-1.json",
+  "benchmark/raw/baseline-large-2.json",
+  "benchmark/raw/baseline-large-3.json",
+  "benchmark/raw/baseline-large-4.json"
+ ],
+ "samples_per_scale": 5,
+ "scales": {
+  "large": {
+   "html_sha256_unique": [
+    "67afacffa005340308b48f31ae5ad5494954cf17062208cad8be9b705aa9ec41"
+   ],
+   "mean_s": 5.311584576778114,
+   "median_s": 5.563299567904323,
+   "n_defs": 2400,
+   "p25_s": 4.948371045757085,
+   "p75_s": 5.575224723201245,
+   "rsd": 0.06927732031911352,
+   "samples": 5,
+   "seconds": [
+    4.948371045757085,
+    4.871336328331381,
+    5.563299567904323,
+    5.599691218696535,
+    5.575224723201245
+   ],
+   "stdev_s": 0.36797234612752044
+  },
+  "medium": {
+   "html_sha256_unique": [
+    "b34488b1b38712efd3375cc44e83f5a4e89c27ccf3a07bdeb4195ba9daff1136"
+   ],
+   "mean_s": 0.30701949251815674,
+   "median_s": 0.30765958689153194,
+   "n_defs": 600,
+   "p25_s": 0.3070319998078048,
+   "p75_s": 0.309553861618042,
+   "rsd": 0.011801136754127844,
+   "samples": 5,
+   "seconds": [
+    0.30092054326087236,
+    0.30765958689153194,
+    0.3099314710125327,
+    0.309553861618042,
+    0.3070319998078048
+   ],
+   "stdev_s": 0.003623179017389698
+  },
+  "small": {
+   "html_sha256_unique": [
+    "0e33fa7c40a8f8599b659792a32826d45d297132a95e21a28175d7694964bf4c"
+   ],
+   "mean_s": 0.019685036689043044,
+   "median_s": 0.019660107791423798,
+   "n_defs": 150,
+   "p25_s": 0.01961112581193447,
+   "p75_s": 0.019776565954089165,
+   "rsd": 0.005309521257739398,
+   "samples": 5,
+   "seconds": [
+    0.019809538032859564,
+    0.019776565954089165,
+    0.019567845854908228,
+    0.019660107791423798,
+    0.01961112581193447
+   ],
+   "stdev_s": 0.00010451812075985401
+  }
+ },
+ "seed": 20261101,
+ "tree": "/tmp/up-md",
+ "upstream": "/tmp/up-md",
+ "upstream_tests": "cd /tmp/up-md && /tmp/venv-md/bin/python -m unittest discover tests",
+ "warmup": 3
+}

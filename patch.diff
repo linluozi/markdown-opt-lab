@@ -1,0 +1,80 @@
+diff --git a/markdown/extensions/abbr.py b/markdown/extensions/abbr.py
+index 659d310..7f8ecbb 100644
+--- a/markdown/extensions/abbr.py
++++ b/markdown/extensions/abbr.py
+@@ -155,27 +155,58 @@ class AbbrBlockprocessor(BlockProcessor):
+         Find and remove all abbreviation references from the text.
+         Each reference is added to the abbreviation collection.
+ 
++        Consecutive definitions are consumed in a single pass. The previous
++        implementation searched the remaining block anew for every definition
++        and pushed the rest of the block back onto the queue, so a run of n
++        definitions was re-scanned O(n) times: quadratic in n.
+         """
+         block = blocks.pop(0)
+-        m = self.RE.search(block)
+-        if m:
++        matches = list(self.RE.finditer(block))
++        if not matches:
++            # No match. Restore block.
++            blocks.insert(0, block)
++            return False
++
++        segments: list[str] = []
++        pos = 0
++        consumed = False
++        tail: str | None = None
++        for m in matches:
+             abbr = m.group('abbr').strip()
+             title = m.group('title').strip()
+-            if title and abbr:
+-                if title == "''" or title == '""':
+-                    self.abbrs.pop(abbr, None)
+-                else:
+-                    self.abbrs[abbr] = title
+-                if block[m.end():].strip():
+-                    # Add any content after match back to blocks as separate block
+-                    blocks.insert(0, block[m.end():].lstrip('\n'))
+-                if block[:m.start()].strip():
+-                    # Add any content before match back to blocks as separate block
+-                    blocks.insert(0, block[:m.start()].rstrip('\n'))
+-                return True
+-        # No match. Restore block.
+-        blocks.insert(0, block)
+-        return False
++            if not (title and abbr):
++                # An invalid definition ends abbreviation scanning for this
++                # block; restore the whole remainder unchanged.
++                tail = block[pos:].lstrip('\n') if consumed else block
++                break
++            prefix = block[pos:m.start()].lstrip('\n') if consumed else block[:m.start()]
++            if prefix.rstrip('\n').strip():
++                # Add any content before match back to blocks as separate block
++                segments.append(prefix.rstrip('\n'))
++            if title == "''" or title == '""':
++                self.abbrs.pop(abbr, None)
++            else:
++                self.abbrs[abbr] = title
++            consumed = True
++            pos = m.end()
++        else:
++            rest = block[pos:].lstrip('\n')
++            if rest.strip():
++                # Add any content after match back to blocks as separate block
++                tail = rest
++            else:
++                tail = None
++
++        if not consumed:
++            # First match was invalid. Restore block.
++            blocks.insert(0, block)
++            return False
++
++        if segments:
++            blocks[0:0] = segments
++        if tail is not None:
++            blocks.insert(len(segments), tail)
++        return True
+ 
+ 
+ AbbrPreprocessor = deprecated("This class has been renamed to `AbbrBlockprocessor`.")(AbbrBlockprocessor)

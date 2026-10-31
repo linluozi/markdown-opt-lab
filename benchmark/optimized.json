@@ -1,0 +1,98 @@
+{
+ "baseline_tests": "cd /tmp/up-md && /tmp/venv-md/bin/python -m unittest discover tests -> Ran 1187 tests in 2.334s, OK (skipped=111), 0 failed",
+ "command": "/tmp/venv-md/bin/python benchmark/bench.py --upstream /tmp/up-md --impl optimized --patched",
+ "env": {
+  "cpu": "AMD EPYC 7K62 48-Core Processor",
+  "mem_total_kb": 3812564,
+  "python": "3.12.3"
+ },
+ "impl": "optimized",
+ "markdown_file": "/tmp/md-opt-bench-tree/markdown/__init__.py",
+ "markdown_version": "3.11.2",
+ "peak_rss_kb": 30600,
+ "raw_files": [
+  "benchmark/raw/optimized-small-0.json",
+  "benchmark/raw/optimized-small-1.json",
+  "benchmark/raw/optimized-small-2.json",
+  "benchmark/raw/optimized-small-3.json",
+  "benchmark/raw/optimized-small-4.json",
+  "benchmark/raw/optimized-medium-0.json",
+  "benchmark/raw/optimized-medium-1.json",
+  "benchmark/raw/optimized-medium-2.json",
+  "benchmark/raw/optimized-medium-3.json",
+  "benchmark/raw/optimized-medium-4.json",
+  "benchmark/raw/optimized-large-0.json",
+  "benchmark/raw/optimized-large-1.json",
+  "benchmark/raw/optimized-large-2.json",
+  "benchmark/raw/optimized-large-3.json",
+  "benchmark/raw/optimized-large-4.json"
+ ],
+ "samples_per_scale": 5,
+ "scales": {
+  "large": {
+   "html_sha256_unique": [
+    "67afacffa005340308b48f31ae5ad5494954cf17062208cad8be9b705aa9ec41"
+   ],
+   "mean_s": 0.014687096793204546,
+   "median_s": 0.01466806186363101,
+   "n_defs": 2400,
+   "p25_s": 0.014637172687798738,
+   "p75_s": 0.014737091027200222,
+   "rsd": 0.005572792357618519,
+   "samples": 5,
+   "seconds": [
+    0.014593471307307482,
+    0.014799687080085278,
+    0.01466806186363101,
+    0.014737091027200222,
+    0.014637172687798738
+   ],
+   "stdev_s": 8.184814076477375e-05
+  },
+  "medium": {
+   "html_sha256_unique": [
+    "b34488b1b38712efd3375cc44e83f5a4e89c27ccf3a07bdeb4195ba9daff1136"
+   ],
+   "mean_s": 0.0035021387971937656,
+   "median_s": 0.003493986092507839,
+   "n_defs": 600,
+   "p25_s": 0.003490770235657692,
+   "p75_s": 0.003501749597489834,
+   "rsd": 0.007143412951746366,
+   "samples": 5,
+   "seconds": [
+    0.003479618113487959,
+    0.003501749597489834,
+    0.003493986092507839,
+    0.0035445699468255043,
+    0.003490770235657692
+   ],
+   "stdev_s": 2.5017223642687385e-05
+  },
+  "small": {
+   "html_sha256_unique": [
+    "0e33fa7c40a8f8599b659792a32826d45d297132a95e21a28175d7694964bf4c"
+   ],
+   "mean_s": 0.0010779962874948978,
+   "median_s": 0.0010494478046894073,
+   "n_defs": 150,
+   "p25_s": 0.0010411422699689865,
+   "p75_s": 0.0010556108318269253,
+   "rsd": 0.07010438688147154,
+   "samples": 5,
+   "seconds": [
+    0.0010556108318269253,
+    0.0012122145853936672,
+    0.0010411422699689865,
+    0.0010315659455955029,
+    0.0010494478046894073
+   ],
+   "stdev_s": 7.557226879533233e-05
+  }
+ },
+ "seed": 20261101,
+ "tree": "/tmp/md-opt-bench-tree",
+ "upstream": "/tmp/up-md",
+ "upstream_tests": "cd /tmp/md-g1 && git apply -p1 patch.diff && /tmp/venv-md/bin/python -m unittest discover tests -> Ran 1187 tests in 2.288s, OK (skipped=111), 0 failed",
+ "warmup": 3
+}

@@ -1,0 +1,14 @@
+{
+ "doc_bytes": 5630,
+ "doc_sha256": "aaacad0d3db399e48f3d13461d461303084eccce3e6384d1716919c43781dd28",
+ "elapsed_s": 0.0010411422699689865,
+ "html_sha256": "0e33fa7c40a8f8599b659792a32826d45d297132a95e21a28175d7694964bf4c",
+ "impl": "optimized",
+ "n_defs": 150,
+ "python": "3.12.3",
+ "sample": 2,
+ "scale": "small",
+ "seed": 20261101,
+ "timer": "time.perf_counter",
+ "warmup": 3
+}
